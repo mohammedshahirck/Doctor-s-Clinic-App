@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
     this.readOnly = false,
     required this.keyboardType,
     this.prefixicon,
+    this.onChanged,
   }) : super(key: key);
   final String hintText;
   final bool isPassword;
@@ -23,10 +24,12 @@ class CustomTextField extends StatelessWidget {
   final bool readOnly;
   final TextInputType? keyboardType;
   final Widget? prefixicon;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       textInputAction: tiaction,
       controller: controller,
       readOnly: readOnly,

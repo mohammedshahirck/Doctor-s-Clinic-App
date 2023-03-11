@@ -34,32 +34,65 @@ class RegisterScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Ksize.ksize20,
-            CustomTextField(
-                prefixicon: Consumer<RegisterProvider>(
-                    builder: (context, values, child) {
-                  return Container(
-                    padding: const EdgeInsets.all(13),
-                    child: InkWell(
-                      onTap: () {
-                        showCountryPicker(
-                          context: context,
-                          countryListTheme: const CountryListThemeData(
-                              bottomSheetHeight: 550),
-                          onSelect: (value) {
-                            values.changeCountry(value);
-                          },
-                        );
-                      },
-                      child: Text(
-                        "${provider.selectedCountry.flagEmoji}  +${provider.selectedCountry.phoneCode}",
-                        style: Tstyles.heading,
+            Consumer<RegisterProvider>(builder: (context, values, child) {
+              return Form(
+                // key: values.formKey,
+                child: CustomTextField(
+                    validator: (value) {
+                      return values.validateMobile(value!);
+                    },
+                    onChanged: (value) {
+                      values.onchange(value);
+                    },
+                    prefixicon: Container(
+                      padding: const EdgeInsets.all(13),
+                      child: InkWell(
+                        onTap: () {
+                          showCountryPicker(
+                            context: context,
+                            countryListTheme: const CountryListThemeData(
+                                bottomSheetHeight: 550),
+                            onSelect: (value) {
+                              values.changeCountry(value);
+                            },
+                          );
+                        },
+                        child: Text(
+                          "${provider.selectedCountry.flagEmoji}  +${provider.selectedCountry.phoneCode}",
+                          style: Tstyles.heading,
+                        ),
                       ),
                     ),
-                  );
-                }),
-                hintText: "Enter phone number ",
-                tiaction: TextInputAction.done,
-                keyboardType: TextInputType.phone)
+                    suffixicon: values.phoneNumberController.text.length > 9
+                        ? const CircleAvatar(
+                            backgroundColor: Colors.green,
+                            child: Icon(
+                              Icons.done,
+                              color: Kcolors.bgcolor,
+                            ),
+                          )
+                        : null,
+                    hintText: "Enter phone number ",
+                    tiaction: TextInputAction.done,
+                    keyboardType: TextInputType.phone),
+              );
+            }),
+            Ksize.ksize30,
+            SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * .06,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Kcolors.bgcolor,
+                  shape: const StadiumBorder(),
+                ),
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            )
           ],
         ),
       ))),
