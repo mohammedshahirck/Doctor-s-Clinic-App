@@ -1,4 +1,4 @@
-import 'package:doctor_clinic/provider/register_provider.dart';
+import 'package:doctor_clinic/provider/auth/register/register_provider.dart';
 import 'package:doctor_clinic/screens/onbord/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

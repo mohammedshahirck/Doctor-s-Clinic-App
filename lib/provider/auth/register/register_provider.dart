@@ -1,9 +1,27 @@
 import 'package:country_picker/country_picker.dart';
+import 'package:doctor_clinic/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterProvider extends ChangeNotifier {
-  bool isloading = false;
   final formKey = GlobalKey<FormState>();
+  bool _isSignedIn = false;
+  bool get isSingnedIn => _isSignedIn;
+  bool isloading = false;
+
+  void checkSignin() async {
+    final SharedPreferences storage = await SharedPreferences.getInstance();
+    _isSignedIn = storage.getBool("is_signedin") ?? false;
+    notifyListeners();
+  }
+
+  void sendPhoneNumber(context) {
+    String phoneNumber = phoneNumberController.text.trim();
+    AuthService()
+        .signInWithPhone(context, "+${selectedCountry.phoneCode}$phoneNumber");
+    notifyListeners();
+  }
+
   TextEditingController phoneNumberController = TextEditingController();
   Country selectedCountry = Country(
     phoneCode: "91",

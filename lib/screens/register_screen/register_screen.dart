@@ -1,7 +1,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:doctor_clinic/helpers/colors/colors.dart';
 import 'package:doctor_clinic/helpers/size/size.dart';
-import 'package:doctor_clinic/provider/register_provider.dart';
+import 'package:doctor_clinic/provider/auth/register/register_provider.dart';
 import 'package:doctor_clinic/widgets/background_gradiant.dart';
 import 'package:doctor_clinic/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +82,9 @@ class RegisterScreen extends StatelessWidget {
               width: double.infinity,
               height: MediaQuery.of(context).size.height * .06,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  provider.sendPhoneNumber(context);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Kcolors.bgcolor,
                   shape: const StadiumBorder(),
