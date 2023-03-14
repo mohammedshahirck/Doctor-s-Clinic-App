@@ -1,3 +1,4 @@
+import 'package:doctor_clinic/helpers/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class PaymentOptions extends StatelessWidget {
@@ -17,13 +18,7 @@ class PaymentOptions extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
-                "PAYMENT OPTIONS",
-                style: TextStyle(
-                  color: Colors.deepPurple[900],
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text("PAYMENT OPTIONS", style: Tstyles.mHeading),
             ],
           ),
           const SizedBox(
@@ -50,13 +45,7 @@ class PaymentOptions extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                Text(
-                  'PayPal',
-                  style: TextStyle(
-                    color: Colors.deepPurple[900],
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text('PayPal', style: Tstyles.heading),
               ],
             ),
           ),
@@ -83,13 +72,7 @@ class PaymentOptions extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                Text(
-                  'Credit Card',
-                  style: TextStyle(
-                    color: Colors.deepPurple[900],
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text('Credit Card', style: Tstyles.heading),
               ],
             ),
           )

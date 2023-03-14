@@ -7,6 +7,9 @@ class Kcolors {
 }
 
 class Tstyles {
+  static TextStyle? mHeading = const TextStyle(
+      color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
+
   static TextStyle? heading = const TextStyle(
       color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold);
 

@@ -1,3 +1,4 @@
+import 'package:doctor_clinic/helpers/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class PromoBanner extends StatelessWidget {
@@ -13,13 +14,7 @@ class PromoBanner extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            title: Text(
-              "Total Cost",
-              style: TextStyle(
-                color: Colors.deepPurple[900],
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            title: Text("Total Cost", style: Tstyles.heading),
             subtitle: const Text(
               'Session fee for 30 minutes',
               style: TextStyle(
@@ -28,29 +23,11 @@ class PromoBanner extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
-            trailing: Text(
-              '\$80',
-              style: TextStyle(
-                color: Colors.deepPurple[900],
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            trailing: Text('\$80', style: Tstyles.heading),
           ),
           ListTile(
-            title: Text(
-              "To Pay",
-              style: TextStyle(
-                color: Colors.deepPurple[900],
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            trailing: Text(
-              '\$80',
-              style: TextStyle(
-                color: Colors.deepPurple[900],
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            title: Text("To Pay", style: Tstyles.heading),
+            trailing: Text('\$80', style: Tstyles.heading),
           ),
           const Divider(
             indent: 20,
@@ -72,17 +49,14 @@ class PromoBanner extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Icon(
-                      Icons.percent,
+                    Image.asset(
+                      'assets/images/promos.png',
+                      height: 30,
+                      width: 30,
+                      color: Color(0xff418F9B),
                     ),
                     const Spacer(),
-                    Text(
-                      "Use Promo Code",
-                      style: TextStyle(
-                        color: Colors.deepPurple[900],
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text("Use Promo Code", style: Tstyles.heading),
                     const Spacer(),
                     const Icon(
                       Icons.arrow_forward_ios_sharp,

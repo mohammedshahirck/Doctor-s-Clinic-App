@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor_clinic/controller/user_provider/user_provider.dart';
+import 'package:doctor_clinic/utils/exception.dart';
 
 import 'package:doctor_clinic/view/user_details_get/user_details.dart';
 import 'package:doctor_clinic/utils/utils.dart';
@@ -22,6 +23,8 @@ class OtpProvider extends ChangeNotifier {
   bool _isSignedIn = false;
   bool get isSignedIn => _isSignedIn;
   String? otpCode;
+
+  final provider = UserProvider();
 
   Future<bool> checkExistingUser() async {
     DocumentSnapshot snapshot =
@@ -55,9 +58,7 @@ class OtpProvider extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message.toString());
-      isLoading = false;
-      notifyListeners();
+      Exceptionsfires.errorHandler(e, context);
     }
   }
 
@@ -79,8 +80,8 @@ class OtpProvider extends ChangeNotifier {
           (value) async {
             log(value.toString());
             if (value == true) {
-              UserProvider().getDatafromFirestore().then(
-                    (value) => UserProvider().saveUserDataToSP().then(
+              provider.getDatafromFirestore().then(
+                    (value) => provider.saveUserDataToSP().then(
                           (value) => setSignIn().then(
                             (value) => Navigator.pushAndRemoveUntil(
                                 context,

@@ -26,14 +26,7 @@ class DoctorDetailCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Gregory House",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepPurpleAccent.shade700,
-                ),
-              ),
+              Text("Gregory House", style: Tstyles.mHeading),
               const SizedBox(
                 height: 5,
               ),
