@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "298098693075",
-    "project_id": "doctor-s-clinic-6be1d",
-    "storage_bucket": "doctor-s-clinic-6be1d.appspot.com"
+    "project_number": "496195056520",
+    "project_id": "doctor-clinics",
+    "storage_bucket": "doctor-clinics.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:298098693075:android:65815919892baaa6331526",
+        "mobilesdk_app_id": "1:496195056520:android:262ea7b47c24769e71003d",
         "android_client_info": {
           "package_name": "com.example.doctor_clinic"
         }
       },
       "oauth_client": [
         {
-          "client_id": "298098693075-framp8smk4b39c0dmu547ohl26l93cms.apps.googleusercontent.com",
+          "client_id": "496195056520-ut3tuchnce8no9bkkgm1000v1k7ddknl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.doctor_clinic",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "298098693075-07qtkv014hv1fplhc7tqh4d8j2l0n4a0.apps.googleusercontent.com",
+          "client_id": "496195056520-i9liv0e1r9bgupm2uckvunc1vo1i6inr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAnhOxaKWHWxzLh6vD5r6_ZSqvm9l9kSwk"
+          "current_key": "AIzaSyA7mOFhCLLIUuNqCQxRsMcnxwRKL8RMh34"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "298098693075-07qtkv014hv1fplhc7tqh4d8j2l0n4a0.apps.googleusercontent.com",
+              "client_id": "496195056520-i9liv0e1r9bgupm2uckvunc1vo1i6inr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

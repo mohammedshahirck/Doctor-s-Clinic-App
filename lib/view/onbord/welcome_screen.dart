@@ -1,13 +1,16 @@
+import 'package:doctor_clinic/controller/auth/register/register_provider.dart';
 import 'package:doctor_clinic/helpers/colors/colors.dart';
 import 'package:doctor_clinic/helpers/size/size.dart';
-import 'package:doctor_clinic/screens/register_screen/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<RegisterProvider>(context, listen: false);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -33,11 +36,7 @@ class WelcomeScreen extends StatelessWidget {
                   InkWell(
                     borderRadius: BorderRadius.circular(12),
                     onTap: () {
-                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                        builder: (context) {
-                          return const RegisterScreen();
-                        },
-                      ), (route) => false);
+                      provider.checkUserState(context);
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -68,8 +67,10 @@ class WelcomeScreen extends StatelessWidget {
                   )
                 ],
               )),
+              Ksize.ksize100,
+              Ksize.ksize50,
               Container(
-                height: MediaQuery.of(context).size.height * .55,
+                height: MediaQuery.of(context).size.height * .45,
                 width: double.infinity,
                 decoration: const BoxDecoration(
                     image: DecorationImage(

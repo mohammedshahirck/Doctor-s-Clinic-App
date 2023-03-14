@@ -1,9 +1,9 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:doctor_clinic/helpers/colors/colors.dart';
 import 'package:doctor_clinic/helpers/size/size.dart';
-import 'package:doctor_clinic/provider/auth/register/register_provider.dart';
-import 'package:doctor_clinic/widgets/background_gradiant.dart';
-import 'package:doctor_clinic/widgets/custom_textfield.dart';
+import 'package:doctor_clinic/controller/auth/register/register_provider.dart';
+import 'package:doctor_clinic/view/widgets/background_gradiant.dart';
+import 'package:doctor_clinic/view/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,13 +36,13 @@ class RegisterScreen extends StatelessWidget {
             Ksize.ksize20,
             Consumer<RegisterProvider>(builder: (context, values, child) {
               return Form(
-                // key: values.formKey,
+                key: values.formKey,
                 child: CustomTextField(
-                    validator: (value) {
-                      return values.validateMobile(value!);
-                    },
                     onChanged: (value) {
                       values.onchange(value);
+                    },
+                    validator: (value) {
+                      return values.validateMobile(value);
                     },
                     prefixicon: Container(
                       padding: const EdgeInsets.all(13),
@@ -78,23 +78,26 @@ class RegisterScreen extends StatelessWidget {
               );
             }),
             Ksize.ksize30,
-            SizedBox(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * .06,
-              child: ElevatedButton(
-                onPressed: () {
-                  provider.sendPhoneNumber(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Kcolors.bgcolor,
-                  shape: const StadiumBorder(),
+            Consumer<RegisterProvider>(builder: (context, value, child) {
+              return SizedBox(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * .06,
+                child: ElevatedButton(
+                  onPressed: () {
+                    provider.sendPhoneNumber(
+                        context, value.formKey.currentState!);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Kcolors.bgcolor,
+                    shape: const StadiumBorder(),
+                  ),
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
-                child: const Text(
-                  "Login",
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            )
+              );
+            })
           ],
         ),
       ))),
